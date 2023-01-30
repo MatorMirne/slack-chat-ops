@@ -1,7 +1,7 @@
 from controller.tools.logger.log import logger
 from controller.action import *
 
-def slack_observer(received_body):
+def observer(received_body):
     logger.info(received_body)
 
     if received_body['text'] != '':

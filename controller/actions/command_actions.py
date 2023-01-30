@@ -1,5 +1,6 @@
 from model.slack_view import *
 from view.slack_blocks import *
+from main import app
 
 def help(received_body):
 
@@ -15,4 +16,7 @@ def help(received_body):
     blocks = [help_block()]
     view.set_blocks(blocks)
     body = view.body()
+
+    app.client.views_open(trigger_id=trigger_id, view=body['view'])
+
 

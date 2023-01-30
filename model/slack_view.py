@@ -1,6 +1,10 @@
 from controller.enums import *
 
 
+View_Title = {
+    VIEW_CALL_BACK_ID.help_view : 'Looking All Commands'
+}
+
 class SlackView:
     trigger_id: str
     view_id: str
@@ -12,7 +16,7 @@ class SlackView:
         self.trigger_id = trigger_id
         self.callback_id = callback_id
         if view_id: self.view_id = view_id
-        self.title = VIEW_TITLE(callback_id).value
+        self.title = View_Title(callback_id).value
 
     def set_blocks(self, blocks: list):
         self.blocks = blocks

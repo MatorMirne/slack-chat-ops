@@ -1,7 +1,7 @@
 from secret import Token
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
-from controller.tools.observer import slack_observer
+from controller.tools.observer import observer
 
 # Install the Slack app and get xoxb- token in advance
 app = App(token=Token.SLACK_APP_TOKEN)
@@ -10,7 +10,7 @@ app = App(token=Token.SLACK_APP_TOKEN)
 def handle_some_command(ack, body, logger):
     ack()
     logger.info(body)
-    slack_observer(body)
+    observer(body)
 
 
 if __name__ == "__main__":
